@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>相册 · 再睡一夏 の 宝藏之地</title>
+  <meta name="description" content="再睡一夏的相册：缩略图索引，点开看大图" />
+  <link rel="icon" href="assets/avatar.jpg" />
+  <link rel="stylesheet" href="assets/fonts.css?v=20261031a" />
+  <link rel="stylesheet" href="assets/style.css?v=20261031b" />
+  <link rel="stylesheet" href="assets/album.css?v=20261031a" />
+</head>
+<body>
+  <!-- 动态背景：两层交叉淡入淡出（bg-rotate.js 调度） -->
+  <div class="bg-layer" id="bgLayerA"></div>
+  <div class="bg-layer" id="bgLayerB"></div>
+  <div class="bg-overlay"></div>
+
+  <!-- 导航栏 -->
+  <nav class="navbar glass album-nav">
+    <div class="nav-inner">
+      <a class="nav-back" href="index.html">← 返回首页</a>
+      <a class="nav-brand" href="index.html">
+        <span class="nav-title">再睡一夏</span>
+        <span class="nav-suffix">の</span>
+        <span class="nav-after">宝藏之地</span>
+      </a>
+      <button class="theme-toggle" id="themeToggle" title="切换明/暗主题">
+        <span class="theme-icon">🌙</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container album-container">
+    <header class="album-head glass">
+      <h1 id="albumTitle">📷 相册</h1>
+      <p class="album-head-desc" id="albumDesc">随手截下的画面，喜欢的就存这儿。</p>
+      <span class="album-head-count" id="albumCount">0 张</span>
+    </header>
+
+    <!-- 分区与缩略图由 assets/album.js 按 album-data.js 渲染 -->
+    <div id="albumSections"></div>
+
+    <p class="album-tip" id="albumTip">点击图片查看大图 · 再点任意位置收起</p>
+
+    <section class="end-card glass">
+      <span class="end-text">「最后的斯大林格勒防线」</span>
+    </section>
+
+    <footer class="site-footer end-footer">
+      <p class="footer-icp">© 2026 再睡一夏 · 模板复刻自
+        <a href="https://github.com/heiehiehi/XinghuisamaBlogs" target="_blank" rel="noopener">XinghuisamaBlogs</a>
+      </p>
+    </footer>
+  </div>
+
+  <!-- 大图灯箱：从缩略图位置平滑放大到居中 -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="查看大图">
+    <div class="lb-backdrop" id="lbBackdrop"></div>
+    <button class="lb-nav lb-prev" id="lbPrev" type="button" aria-label="上一张">‹</button>
+    <button class="lb-nav lb-next" id="lbNext" type="button" aria-label="下一张">›</button>
+    <a class="lb-download" id="lbDownload" href="#" download aria-label="下载原图" title="下载原图">⬇</a>
+    <div class="lb-hint">← → 切换 · 点击任意位置收起</div>
+  </div>
+
+  <script src="assets/album-data.js?v=20261030e"></script>
+  <script src="assets/bg-rotate.js?v=20261030l"></script>
+  <script src="assets/album.js?v=20261030f"></script>
+</body>
+</html>

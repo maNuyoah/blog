@@ -1,0 +1,25 @@
+/* Noto Serif SC 本地子集 —— 由 Google Fonts 版子集化生成（2026-10-30）
+   生成方式：合并 gstatic 全部 unicode 分片得完整字体，再按「站点字符 + 符号区 + GB2312 一级常用字」子集化。
+   原 320k 远程字体改为本地加载，国内访问不再被 Google Fonts 卡首屏。
+   缺字（极少用字）会按 --font-serif 回退到系统衬线，属预期行为。 */
+@font-face {
+  font-family: "Noto Serif SC";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/noto-serif-sc-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Noto Serif SC";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/noto-serif-sc-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Noto Serif SC";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("fonts/noto-serif-sc-900.woff2") format("woff2");
+}
