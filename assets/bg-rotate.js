@@ -12,19 +12,19 @@
   // 背景图清单：ACGN 区横构图（比例 ≥1.6）共 13 张
   // 排序从“干净柔和”到“抢眼杂乱”，方便直观对比每张当壁纸的效果
   var BG_IMAGES = [
-    "assets/bg/bg-10000.webp", // 紫藤花
-    "assets/bg/bg-10001.webp", // 雪夜街道
-    "assets/bg/bg-10006.webp", // 雨窗
-    "assets/bg/bg-10005.webp", // 草原拔剑
-    "assets/bg/bg-10004.webp", // 木屋少女
-    "assets/bg/bg-10008.webp", // 和服少女
-    "assets/bg/bg-10007.webp", // 渔船夜色
-    "assets/bg/bg-10003.webp", // 粉紫和服
-    "assets/bg/bg-58.webp",    // 樱花少女
-    "assets/bg/bg-9989.webp",  // 草地女孩
-    "assets/bg/bg-9967.webp",  // 台阶众少女
-    "assets/bg/bg-9969.webp",  // 暖黄街道
-    "assets/bg/bg-9979.webp",  // 人群剪影
+    "assets/bg/bg-10000.webp?v=20261031x", // 紫藤花
+    "assets/bg/bg-10001.webp?v=20261031x", // 雪夜街道
+    "assets/bg/bg-10006.webp?v=20261031x", // 雨窗
+    "assets/bg/bg-10005.webp?v=20261031x", // 草原拔剑
+    "assets/bg/bg-10004.webp?v=20261031x", // 木屋少女
+    "assets/bg/bg-10008.webp?v=20261031x", // 和服少女
+    "assets/bg/bg-10007.webp?v=20261031x", // 渔船夜色
+    "assets/bg/bg-10003.webp?v=20261031x", // 粉紫和服
+    "assets/bg/bg-58.webp?v=20261031x",    // 樱花少女
+    "assets/bg/bg-9989.webp?v=20261031x",  // 草地女孩
+    "assets/bg/bg-9967.webp?v=20261031x",  // 台阶众少女
+    "assets/bg/bg-9969.webp?v=20261031x",  // 暖黄街道
+    "assets/bg/bg-9979.webp?v=20261031x",  // 人群剪影
   ];
 
   var DWELL = 6000; // 每张停留时长

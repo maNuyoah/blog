@@ -71,16 +71,16 @@ const CHATTERS = [
    加新歌后如需同步压缩：用 ffmpeg -i 原文件 -map 0:a -vn -c:a libmp3lame -b:a 128k 输出到 music-128/。
    播放为懒加载：点播放才开始下载（audio preload=metadata + 首次播放才抓整首进内存）。 */
 const TRACKS = [
-  { title: "Die For You",  artist: "VALORANT/Grabbitz", src: "assets/music-128/Die For You.mp3",  cover: "assets/covers/Die For You.jpg" },
-  { title: "LOVE 2000",    artist: "遠野ひかる",        src: "assets/music-128/LOVE 2000.mp3",    cover: "assets/covers/LOVE 2000.jpg" },
-  { title: "Ticking Away", artist: "VALORANT/Grabbitz/bbno$", src: "assets/music-128/Ticking Away.mp3", cover: "assets/covers/Ticking Away.jpg" },
-  { title: "secret base ~君がくれたもの~ (10 years after Ver.)", artist: "茅野愛衣/戸松遥/早見沙織", src: "assets/music-128/secret base ~君がくれたもの~ (10 years after Ver.).mp3", cover: "assets/covers/secret base ~君がくれたもの~ (10 years after Ver.).jpg" },
-  { title: "spiral",       artist: "LONGMAN",          src: "assets/music-128/spiral.mp3",       cover: "assets/covers/spiral.jpg" },
-  { title: "すずめ feat.十明", artist: "RADWIMPS/十明",  src: "assets/music-128/すずめ feat.十明.mp3", cover: "assets/covers/すずめ feat.十明.jpg" },
-  { title: "フィナーレ。", artist: "eill",              src: "assets/music-128/フィナーレ。.mp3",    cover: "assets/covers/フィナーレ。.jpg" },
-  { title: "天龙八部之宿敌", artist: "许嵩",            src: "assets/music-128/天龙八部之宿敌-许嵩.mp3", cover: "assets/covers/天龙八部之宿敌-许嵩.jpg" },
-  { title: "戒烟",           artist: "李荣浩",          src: "assets/music-128/戒烟-李荣浩.mp3",       cover: "assets/covers/戒烟-李荣浩.jpg" },
-  { title: "我想念",         artist: "汪苏泷",          src: "assets/music-128/我想念 - 汪苏泷.mp3",   cover: "assets/covers/我想念 - 汪苏泷.jpg" },
+  { title: "Die For You",  artist: "VALORANT/Grabbitz", src: "assets/music-128/Die For You.mp3?v=20261031x",  cover: "assets/covers/Die For You.jpg?v=20261031x" },
+  { title: "LOVE 2000",    artist: "遠野ひかる",        src: "assets/music-128/LOVE 2000.mp3?v=20261031x",    cover: "assets/covers/LOVE 2000.jpg?v=20261031x" },
+  { title: "Ticking Away", artist: "VALORANT/Grabbitz/bbno$", src: "assets/music-128/Ticking Away.mp3?v=20261031x", cover: "assets/covers/Ticking Away.jpg?v=20261031x" },
+  { title: "secret base ~君がくれたもの~ (10 years after Ver.)", artist: "茅野愛衣/戸松遥/早見沙織", src: "assets/music-128/secret base ~君がくれたもの~ (10 years after Ver.).mp3?v=20261031x", cover: "assets/covers/secret base ~君がくれたもの~ (10 years after Ver.).jpg?v=20261031x" },
+  { title: "spiral",       artist: "LONGMAN",          src: "assets/music-128/spiral.mp3?v=20261031x",       cover: "assets/covers/spiral.jpg?v=20261031x" },
+  { title: "すずめ feat.十明", artist: "RADWIMPS/十明",  src: "assets/music-128/すずめ feat.十明.mp3?v=20261031x", cover: "assets/covers/すずめ feat.十明.jpg?v=20261031x" },
+  { title: "フィナーレ。", artist: "eill",              src: "assets/music-128/フィナーレ。.mp3?v=20261031x",    cover: "assets/covers/フィナーレ。.jpg?v=20261031x" },
+  { title: "天龙八部之宿敌", artist: "许嵩",            src: "assets/music-128/天龙八部之宿敌-许嵩.mp3?v=20261031x", cover: "assets/covers/天龙八部之宿敌-许嵩.jpg?v=20261031x" },
+  { title: "戒烟",           artist: "李荣浩",          src: "assets/music-128/戒烟-李荣浩.mp3?v=20261031x",       cover: "assets/covers/戒烟-李荣浩.jpg?v=20261031x" },
+  { title: "我想念",         artist: "汪苏泷",          src: "assets/music-128/我想念 - 汪苏泷.mp3?v=20261031x",   cover: "assets/covers/我想念 - 汪苏泷.jpg?v=20261031x" },
 ];
 
 /* ---------------- 相册（首页只显示入口，图片在 album.html 二级页） ----------------
@@ -179,7 +179,7 @@ function renderPhotos() {
   const preview = PHOTOS.slice(0, 3);
   if (!preview.length) {
     const img = document.createElement("img");
-    img.src = "assets/photos/placeholder.svg";
+    img.src = "assets/photos/placeholder.svg?v=20261031x";
     img.alt = "";
     collage.appendChild(img);
     return;
@@ -188,7 +188,7 @@ function renderPhotos() {
     const img = document.createElement("img");
     img.loading = "lazy";
     img.alt = "";
-    img.onerror = () => { img.onerror = null; img.src = "assets/photos/placeholder.svg"; };
+    img.onerror = () => { img.onerror = null; img.src = "assets/photos/placeholder.svg?v=20261031x"; };
     img.src = p.thumb || p.src;
     collage.appendChild(img);
   });
@@ -506,7 +506,7 @@ function initPlayer() {
   // 读取已提取的封面/歌词文件（无需本地服务器，双击 file:// 也能用）
   function loadLyrics() {
     const tr = TRACKS[idx];
-    const key = (tr.src || "").split("/").pop().replace(/\.[^.]+$/, "");
+    const key = (tr.src || "").split("/").pop().split("?")[0].replace(/\.[^.]+$/, "");
     const lib = window.XB_LYRICS || {};
     const text = lib[key] || "";
     if (!text && Object.keys(lib).length) {
@@ -562,9 +562,9 @@ function initPlayer() {
     seekingTo = null; seekTarget = null; clearTimeout(seekGuard); clearTimeout(seekTimer);
     scrubbing = false; moved = false; downRatio = null; lastRatio = null;
     // 显示名与文件名解耦：title/artist 没填时，自动用文件名（去后缀）兜底
-    const baseName = (tr.src || "").split("/").pop().replace(/\.[^.]+$/, "");
-    cover.onerror = () => { cover.onerror = null; cover.src = "assets/covers/default.svg"; };
-    cover.src = tr.cover || "assets/covers/default.svg";
+    const baseName = (tr.src || "").split("/").pop().split("?")[0].replace(/\.[^.]+$/, "");
+    cover.onerror = () => { cover.onerror = null; cover.src = "assets/covers/default.svg?v=20261031x"; };
+    cover.src = tr.cover || "assets/covers/default.svg?v=20261031x";
     title.textContent = tr.title || baseName || "未知曲目";
     artist.textContent = tr.artist || "未知歌手";
     // 音源：优先用内存 Blob（整首在内存里，任意位置都能立刻跳）；

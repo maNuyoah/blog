@@ -56,7 +56,7 @@
     lbDownload.style.display = ok ? "" : "none";
     if (!ok) return;
     lbDownload.href = entry.photo.src;
-    lbDownload.setAttribute("download", (entry.photo.src || "").split("/").pop());
+    lbDownload.setAttribute("download", (entry.photo.src || "").split("/").pop().split("?")[0]);
   }
 
   // 把原图等比塞进视口。
