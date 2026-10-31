@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-page-node-id="Kg68kt8Fj6iTRDUWAxWVcI">
-<head data-page-node-id="vCJq5e6VsM5oL7lmpdC5Vn">
-  <meta charset="UTF-8" data-page-node-id="B4aLBBWXt6ydVS1EADd1cX" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="5GdJOnhE9hC5V8Ay3CDDgv" />
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>再睡一夏 の 宝藏之地</title>
   <!-- 分享卡片（OG / Twitter）：外链转发时有预览。og:url 建议换成你部署后的真实域名 -->
   <meta property="og:type" content="website" />
@@ -12,12 +12,12 @@
   <meta property="og:image" content="assets/avatar.jpg" />
   <!-- <meta property="og:url" content="https://你的域名/" /> -->
   <meta name="twitter:card" content="summary" />
-  <meta name="description" content="一个毛玻璃风格的静态博客首页模板" data-page-node-id="dXegGXBdUsQ1HKt3feango" />
-  <link rel="icon" href="assets/avatar.jpg" data-page-node-id="8qAhmrNeXz1FOAyGN0GvKa" />
+  <meta name="description" content="一个毛玻璃风格的静态博客首页模板" />
+  <link rel="icon" href="assets/avatar.jpg" />
   <link rel="stylesheet" href="assets/fonts.css?v=20261031a" />
-  <link rel="stylesheet" href="assets/style.css?v=20261031c" data-page-node-id="sciiMiLcE2iiG7KVfWCiqE" />
+  <link rel="stylesheet" href="assets/style.css?v=20261031c" />
 </head>
-<body data-page-node-id="u7pMom1H92Os7Pa5sjWCpR">
+<body>
   <!-- 首屏骨架屏：页面/字体加载完成后淡出 -->
   <div id="skeleton" aria-hidden="true">
     <div class="sk-bg" aria-hidden="true"></div>
@@ -32,102 +32,102 @@
   <div class="scroll-progress"><span id="scrollBar"></span></div>
   <!-- 动态背景：渐变 / 图片轮播 -->
   <!-- 双层背景：bg-rotate.js 交叉淡入切换（A 在下、B 在上，由脚本调度） -->
-  <div class="bg-layer" id="bgLayerA" data-page-node-id="exJB42wCvRCzuR8DlGPNe9"></div>
+  <div class="bg-layer" id="bgLayerA"></div>
   <div class="bg-layer" id="bgLayerB"></div>
-  <div class="bg-overlay" data-page-node-id="K1KU18STXdYqE7h47qBXKS"></div>
+  <div class="bg-overlay"></div>
 
   <!-- 导航栏 -->
-  <nav class="navbar glass" id="navbar" data-page-node-id="qkQUDtIam01g5JFL3mzQFH">
-    <div class="nav-inner" data-page-node-id="kCeIiAzl8QjSo9SPTmX8gp">
-      <a class="nav-brand" href="#" data-page-node-id="pVYnF7VgUFr9mH4IKhUYYu">
-        <span class="nav-title" data-page-node-id="kGhRnzGogrKCGWVcblsMkT">再睡一夏</span>
-        <span class="nav-suffix" data-page-node-id="TfA0udaBIZ9wZUQLLvNRNY">の</span>
-        <span class="nav-after" data-page-node-id="YQhINrtS5RQealYh4rrZzv">宝藏之地</span>
+  <nav class="navbar glass" id="navbar">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#">
+        <span class="nav-title">再睡一夏</span>
+        <span class="nav-suffix">の</span>
+        <span class="nav-after">宝藏之地</span>
       </a>
-      <ul class="nav-links" data-page-node-id="0BKzCOJc99Ko3vAy88C6v4">
-        <li data-page-node-id="PP7gvKxImj92wzyjfBdfAu"><a href="#" class="active" data-page-node-id="WQSoGCS1FoI6NyJIAuM9FM">首页</a></li>
-        <li data-page-node-id="cfgJDV01MBqDoX3GFOKwzn"><a href="#posts" data-page-node-id="qQEAVhLh28NnNr57QD43ik">文章·相册</a></li>
-        <li data-page-node-id="Cll9CWE6UE0NL5XkxDinyg"><a href="#about" data-page-node-id="FRY0s7a3BhOKJ9PVkU1fsP">关于</a></li>
-        <span class="nav-indicator" id="navIndicator" data-page-node-id="iPcBLVSrFWCGGBhFjUt7oD"></span>
+      <ul class="nav-links">
+        <li><a href="#" class="active">首页</a></li>
+        <li><a href="#posts">文章·相册</a></li>
+        <li><a href="#about">关于</a></li>
+        <span class="nav-indicator" id="navIndicator"></span>
       </ul>
-      <button class="theme-toggle" id="themeToggle" title="切换明/暗主题" data-page-node-id="ODctXl5ImBQQ0Fhb9LMqNo">
-        <span class="theme-icon" data-page-node-id="hdOW3C35wxo8fUo0ouNUS6">🌙</span>
+      <button class="theme-toggle" id="themeToggle" title="切换明/暗主题">
+        <span class="theme-icon">🌙</span>
       </button>
     </div>
   </nav>
 
   <!-- 移动端竖胶囊导航：常驻右侧，追踪三大模块 -->
-  <nav class="mobile-nav glass" id="mobileNav" aria-label="移动端导航" data-page-node-id="n3oQsfcXeHZh1OvdpWOLE8">
-    <a href="#" class="mn-item active" data-page-node-id="fVSmoLlfLDGBoSSLRqMCFN">首页</a>
-    <a href="#posts" class="mn-item" data-page-node-id="cECr8YdBEXuy1JsGGbD9HI">文章·相册</a>
-    <a href="#about" class="mn-item" data-page-node-id="7hxKcap7j6Mx0LFN5AfMyc">关于</a>
-    <span class="mn-indicator" id="mnIndicator" data-page-node-id="KD59CCqr1j7CUw3PIWuuLP"></span>
+  <nav class="mobile-nav glass" id="mobileNav" aria-label="移动端导航">
+    <a href="#" class="mn-item active">首页</a>
+    <a href="#posts" class="mn-item">文章·相册</a>
+    <a href="#about" class="mn-item">关于</a>
+    <span class="mn-indicator" id="mnIndicator"></span>
   </nav>
 
-  <div class="container" data-page-node-id="JMm4ig8vjRyOeyJIPHznbn">
-    <main class="grid-main" data-page-node-id="XG4lNIYNXDlIAGeGJx9g0N">
+  <div class="container">
+    <main class="grid-main">
       <!-- 第一行：个人信息 + 播放器 -->
-      <section class="row row-top" data-page-node-id="ecRg5EiNzpu9QGh7VuHyHJ">
-        <div class="col-profile" data-page-node-id="YR5qLaaiZkMCPvR8CzzAmp">
-          <div class="profile-card glass" id="about" data-page-node-id="1pjO4uzC0x7PF4qJn0Cl5r">
-            <img class="avatar" src="assets/avatar.jpg?v=20261029k" alt="头像" data-page-node-id="CeGSGvVD4eIt5cejNCALno" />
-            <h1 class="profile-name" data-page-node-id="1pwC6PmOcnJzudxPc6iu7d">再睡一夏</h1>
-            <div class="typewriter" data-page-node-id="o2RQGnwYGNzTF3Ahq3nqbq"><span id="typeText" data-page-node-id="Awq25UKuFZjIuB044d76G4"></span><span class="tw-cursor" data-page-node-id="lL1Eyk7YEgts7Kwqp0k36g">▍</span></div>
-            <div class="stat-row" data-page-node-id="y7on6bInjmFDSYZrdfcsf7">
-              <div class="stat" data-page-node-id="U0OLUXDjzbIZKyiaAb9rcR"><span class="stat-num" id="statPosts" data-page-node-id="qwgaJEWIaCIQoImKBXFWVk">0</span><span class="stat-label" data-page-node-id="ZtQ05AXLpNVsT7BWqjNvZX">文章</span></div>
-              <div class="stat" data-page-node-id="Clms957ay1Po5kfaPygT1j"><span class="stat-num" id="statChatters" data-page-node-id="2KTSo44W7AlYwBRtQewkGY">0</span><span class="stat-label" data-page-node-id="BhuX3ycTl6GcG6D39EoAGY">说说</span></div>
-              <div class="stat" data-page-node-id="FykpaG4AllZSyn22Rp8CzT"><span class="stat-num" id="statPhotos" data-page-node-id="RSD2zTpULfmwUYqXUM7SrP">128</span><span class="stat-label" data-page-node-id="XLxZGCwbwAUAE53LV5p83U">照片</span></div>
+      <section class="row row-top">
+        <div class="col-profile">
+          <div class="profile-card glass" id="about">
+            <img class="avatar" src="assets/avatar.jpg?v=20261029k" alt="头像" />
+            <h1 class="profile-name">再睡一夏</h1>
+            <div class="typewriter"><span id="typeText"></span><span class="tw-cursor">▍</span></div>
+            <div class="stat-row">
+              <div class="stat"><span class="stat-num" id="statPosts">0</span><span class="stat-label">文章</span></div>
+              <div class="stat"><span class="stat-num" id="statChatters">0</span><span class="stat-label">说说</span></div>
+              <div class="stat"><span class="stat-num" id="statPhotos">128</span><span class="stat-label">照片</span></div>
             </div>
-            <div class="social-row" data-page-node-id="nqvyQVV8m5H77tnS4pkIjM">
+            <div class="social-row">
               <!-- QQ：二级框 -->
-              <div class="social-item" data-page-node-id="WHDu68fj66DyzzguMgsnJl">
-                <button class="social-btn" id="qqBtn" type="button" title="点击显示QQ号" aria-label="QQ" data-page-node-id="mdcmh5EwLb7NIq7d9hZ25e">
-                  <svg class="sicon" viewBox="0 0 24 24" aria-hidden="true" data-page-node-id="WpbWYZMefFMWP1ZeEJcMZW"><path fill="currentColor" d="M21.395 15.035a40 40 0 0 0-.803-2.264l-1.079-2.695c.001-.032.014-.562.014-.836C19.526 4.632 17.351 0 12 0S4.474 4.632 4.474 9.241c0 .274.013.804.014.836l-1.08 2.695a39 39 0 0 0-.802 2.264c-1.021 3.283-.69 4.643-.438 4.673.54.065 2.103-2.472 2.103-2.472 0 1.469.756 3.387 2.394 4.771-.612.188-1.363.479-1.845.835-.434.32-.379.646-.301.778.343.578 5.883.369 7.482.189 1.6.18 7.14.389 7.483-.189.078-.132.132-.458-.301-.778-.483-.356-1.233-.646-1.846-.836 1.637-1.384 2.393-3.302 2.393-4.771 0 0 1.563 2.537 2.103 2.472.251-.03.581-1.39-.438-4.673" data-page-node-id="OTJ5FIvDXm4i6ItyX56gk7"/></svg>
+              <div class="social-item">
+                <button class="social-btn" id="qqBtn" type="button" title="点击显示QQ号" aria-label="QQ">
+                  <svg class="sicon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.395 15.035a40 40 0 0 0-.803-2.264l-1.079-2.695c.001-.032.014-.562.014-.836C19.526 4.632 17.351 0 12 0S4.474 4.632 4.474 9.241c0 .274.013.804.014.836l-1.08 2.695a39 39 0 0 0-.802 2.264c-1.021 3.283-.69 4.643-.438 4.673.54.065 2.103-2.472 2.103-2.472 0 1.469.756 3.387 2.394 4.771-.612.188-1.363.479-1.845.835-.434.32-.379.646-.301.778.343.578 5.883.369 7.482.189 1.6.18 7.14.389 7.483-.189.078-.132.132-.458-.301-.778-.483-.356-1.233-.646-1.846-.836 1.637-1.384 2.393-3.302 2.393-4.771 0 0 1.563 2.537 2.103 2.472.251-.03.581-1.39-.438-4.673"/></svg>
                 </button>
-                <div class="qq-pop" id="qqPop" data-page-node-id="igoYEtlq7QdWlUky094QEk"><span class="qq-num" data-page-node-id="VnHDHEHRL758JRiFaeW9UJ">QQ：468260372</span></div>
+                <div class="qq-pop" id="qqPop"><span class="qq-num">QQ：468260372</span></div>
               </div>
               <!-- B站 -->
-              <a class="social-btn" href="https://b23.tv/cXd0mW0" target="_blank" rel="noopener" title="哔哩哔哩：萝卜丝儿不好吃" aria-label="哔哩哔哩" data-page-node-id="ZggwlZAyglTgKPoVXqImde">
-                <svg class="sicon" viewBox="0 0 24 24" aria-hidden="true" data-page-node-id="mxUlDjAY63ezJAeSdIZrR4"><path fill="currentColor" d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c0-.373.129-.689.386-.947.258-.257.574-.386.947-.386zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373Z" data-page-node-id="3ht3EIKQCkSFkEruzfNCRy"/></svg>
+              <a class="social-btn" href="https://b23.tv/cXd0mW0" target="_blank" rel="noopener" title="哔哩哔哩：萝卜丝儿不好吃" aria-label="哔哩哔哩">
+                <svg class="sicon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c0-.373.129-.689.386-.947.258-.257.574-.386.947-.386zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373Z"/></svg>
               </a>
               <!-- GitHub -->
-              <a class="social-btn" href="https://github.com/maNuyoah" target="_blank" rel="noopener" title="GitHub：maNuyoah" aria-label="GitHub" data-page-node-id="rxwTQSVbVewWoD7KvO3EXG">
-                <svg class="sicon" viewBox="0 0 24 24" aria-hidden="true" data-page-node-id="GiDgjFP9bUY8l4Q5JhlNEg"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" data-page-node-id="QWD5E4OY7J6qVgzLQHWXHe"/></svg>
+              <a class="social-btn" href="https://github.com/maNuyoah" target="_blank" rel="noopener" title="GitHub：maNuyoah" aria-label="GitHub">
+                <svg class="sicon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
               </a>
               <!-- 邮箱：二级框 -->
-              <div class="social-item" data-page-node-id="2hMVBkTwdH953G0z3pYo2c">
-                <button class="social-btn" id="mailBtn" type="button" title="点击显示邮箱" aria-label="邮箱" data-page-node-id="C7zFGDbwiNho7JTsuFN3ci">
-                  <svg class="sicon" viewBox="0 0 24 24" aria-hidden="true" data-page-node-id="PRoGxMIPrnZoFYd08Czggp"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.236-8 4.882-8-4.882V6l8 4.882L20 6z" data-page-node-id="5KQmlahPaaY2yRBKR4bN0C"/></svg>
+              <div class="social-item">
+                <button class="social-btn" id="mailBtn" type="button" title="点击显示邮箱" aria-label="邮箱">
+                  <svg class="sicon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.236-8 4.882-8-4.882V6l8 4.882L20 6z"/></svg>
                 </button>
-                <div class="qq-pop" id="mailPop" data-page-node-id="AQ6mdZdJeQtCjA5vGLtFlb"><span class="qq-num" data-page-node-id="l3kTT60CyUa9ECBqJ6CrTI">邮箱：468260372@qq.com</span></div>
+                <div class="qq-pop" id="mailPop"><span class="qq-num">邮箱：468260372@qq.com</span></div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="col-player" data-page-node-id="3gfexHTRL0o4xKD6NAtOwM">
-          <div class="cloud-player glass" data-page-node-id="oV4GCjwTErbR5LbLIutEmX">
-            <div class="player-head" data-page-node-id="mJogsyCxDzaDoJy5kNNPAL">
-              <span class="player-tag" data-page-node-id="PUES9dNRlvDswMZHEi47uc">☁️ 云音乐</span>
-              <span class="player-status" id="playerStatus" data-page-node-id="uTeO0lJpXtJu0WMcAXnmZg">已暂停</span>
+        <div class="col-player">
+          <div class="cloud-player glass">
+            <div class="player-head">
+              <span class="player-tag">☁️ 云音乐</span>
+              <span class="player-status" id="playerStatus">已暂停</span>
             </div>
-            <div class="player-body" data-page-node-id="HIp4C4TcU80BVGR0bDmo8c">
-              <img class="player-cover" id="playerCover" src="assets/avatar.jpg" alt="封面" data-page-node-id="evNPxrn3jx5WKg4wUGxHAr" />
-              <div class="player-meta" data-page-node-id="Vz5iH5eKU8Jfoic0Yvy7kS">
-                <div class="player-title" id="playerTitle" data-page-node-id="hDKdEMTTc7AFbt7jsXWo8C">星辉小曲</div>
-                <div class="player-artist" id="playerArtist" data-page-node-id="gWIfOVrT1qNYscZxdXTOKG">再睡一夏</div>
-                <div class="pbar" id="playerProgress" role="slider" tabindex="0" aria-label="播放进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-page-node-id="ghfbr4A1fXD2yrXsx7D4ij">
+            <div class="player-body">
+              <img class="player-cover" id="playerCover" src="assets/avatar.jpg" alt="封面" />
+              <div class="player-meta">
+                <div class="player-title" id="playerTitle">星辉小曲</div>
+                <div class="player-artist" id="playerArtist">再睡一夏</div>
+                <div class="pbar" id="playerProgress" role="slider" tabindex="0" aria-label="播放进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
                   <div class="pbar-track"></div>
                   <div class="pbar-fill" id="pbarFill"></div>
                   <div class="pbar-thumb" id="pbarThumb"></div>
                 </div>
-                <div class="player-time" data-page-node-id="CRg9xnQlEFOQU8B74uUtlj"><span id="curTime" data-page-node-id="OV9ZGOXh8KQYtVLAOYDzWl">0:00</span><span id="totTime" data-page-node-id="y1chpCFLjclZYlS91rBp6E">3:30</span></div>
+                <div class="player-time"><span id="curTime">0:00</span><span id="totTime">3:30</span></div>
               </div>
             </div>
-            <div class="player-controls" data-page-node-id="PpwrTnK2EVj0EHQQSWL88G">
-              <button id="prevBtn" data-page-node-id="uXhw3X6SwumtOVBwH42dGh">⏮</button>
-              <button id="playBtn" class="play-main" data-page-node-id="7JFHoK2ZU5omwRY8O2ftnc">▶</button>
-              <button id="nextBtn" data-page-node-id="4JvHS8CAy8bEkTrvYBVXww">⏭</button>
+            <div class="player-controls">
+              <button id="prevBtn">⏮</button>
+              <button id="playBtn" class="play-main">▶</button>
+              <button id="nextBtn">⏭</button>
               <label class="pvol" title="音量">🔊<input id="volumeSlider" type="range" min="0" max="1" step="0.05" value="1" aria-label="音量" /></label>
             </div>
             <div class="player-lyrics" id="lyricBox"><div class="lyric-empty">暂无歌词</div></div>
@@ -137,18 +137,18 @@
       </section>
 
       <!-- 歌词栏 -->
-      <div class="lyric-bar glass" data-page-node-id="E1AV2G97R7l2b9PLVo0j1Y">
-        <span class="lyric-text" id="lyricText" data-page-node-id="mkTpMmapYX1AFUhXzeHIfk" style="opacity: 0;">BUG 修复进度 99%，剩下 1% 永远修不完。</span>
+      <div class="lyric-bar glass">
+        <span class="lyric-text" id="lyricText" style="opacity: 0;">BUG 修复进度 99%，剩下 1% 永远修不完。</span>
       </div>
 
       <!-- 第二行：文章轮播 + 照片墙 + 说说 + 主题切换 -->
-      <section class="row row-mid" data-page-node-id="RWl4oTdFfFzYPPktDiM2vZ">
-        <div class="col-posts" id="posts" data-page-node-id="SyLqCZDcx0CP3M3FCzZLSZ">
-          <div class="section-head" data-page-node-id="oM0vKp2WJVBPKtXdShFCe1"><h2 data-page-node-id="j6Q5EUR6Nfzw9wa8HSJBhA">📝 最新文章</h2><a href="#" class="more-link" data-toast="更多文章页（占位）" data-page-node-id="cTs8RMvXw1DFZWlCanWlcR">更多 →</a></div>
-          <div class="posts-list" id="postsList" data-page-node-id="UEyzgjvC3l0bQAMeN8YUy5"></div>
+      <section class="row row-mid">
+        <div class="col-posts" id="posts">
+          <div class="section-head"><h2>📝 最新文章</h2><a href="#" class="more-link" data-toast="更多文章页（占位）">更多 →</a></div>
+          <div class="posts-list" id="postsList"></div>
         </div>
 
-        <div class="col-right" data-page-node-id="9Ufy3sfot2u2Zg3LJrJ5Oa">
+        <div class="col-right">
           <!-- 相册入口：首页不铺图，点进去到二级页 album.html 慢慢看 -->
           <a class="album-entry glass" id="photowall" href="album.html">
             <div class="album-collage" id="albumCollage"></div>
@@ -162,22 +162,22 @@
             </div>
           </a>
 
-          <div class="grid-bottom" data-page-node-id="J4FknEB3CfliXzWFpG3HnY">
-            <div class="col-chatter" data-page-node-id="iTdNLgTdoXiwH3NAwgCD2Y">
-              <div class="section-head" data-page-node-id="gBG3hIRi75iPG7CaIqpMic"><h2 data-page-node-id="fkhVeZaAPwOfE6AvdRcsRU">💬 云端杂谈</h2></div>
-              <div class="chatter-window" data-page-node-id="1KGCcflJI6i2cTWF8h7Za9">
-                <div class="chatter-track" id="chatterTrack" data-page-node-id="ezeZrMXcgrdt3kin8uDGQU"></div>
+          <div class="grid-bottom">
+            <div class="col-chatter">
+              <div class="section-head"><h2>💬 云端杂谈</h2></div>
+              <div class="chatter-window">
+                <div class="chatter-track" id="chatterTrack"></div>
               </div>
             </div>
-            <div class="col-theme" data-page-node-id="2T5nb34aB5W4F3r9L5804E">
-              <div class="theme-block glass" data-page-node-id="ZoaIDbmWkHI2TmNBfS92IG">
-                <div class="theme-block-title" data-page-node-id="k9ie27BwJIvhB630IJ7Pka">🎨 主题</div>
-                <div class="theme-swatches" data-page-node-id="ihLI1mSnNHNjVMpeHHmDo7">
-                  <button class="swatch" data-theme="dark" title="暗色" style="background:linear-gradient(135deg,#1e1b4b,#0f172a)" data-page-node-id="7MD8FCrv8llk0r7UQv9RES"><span data-page-node-id="PnFqkbWF9DefjS7TAMKMl2">🌙</span></button>
-                  <button class="swatch" data-theme="light" title="亮色" style="background:linear-gradient(135deg,#fbc2eb,#a1c4fd)" data-page-node-id="TdBalqL7tLy77TAsew54BP"><span data-page-node-id="CVn0Jt1hZQdZmVDI2W6aR3">☀️</span></button>
-                  <button class="swatch" data-theme="auto" title="跟随系统" style="background:linear-gradient(135deg,#a18cd1,#c2e9fb)" data-page-node-id="gc6y0Q2FHpNHfLwzymsB4a"><span data-page-node-id="gR4LvcFMaEZmyEgc1xVDnX">🌗</span></button>
+            <div class="col-theme">
+              <div class="theme-block glass">
+                <div class="theme-block-title">🎨 主题</div>
+                <div class="theme-swatches">
+                  <button class="swatch" data-theme="dark" title="暗色" style="background:linear-gradient(135deg,#1e1b4b,#0f172a)"><span>🌙</span></button>
+                  <button class="swatch" data-theme="light" title="亮色" style="background:linear-gradient(135deg,#fbc2eb,#a1c4fd)"><span>☀️</span></button>
+                  <button class="swatch" data-theme="auto" title="跟随系统" style="background:linear-gradient(135deg,#a18cd1,#c2e9fb)"><span>🌗</span></button>
                 </div>
-                <p class="theme-hint" id="themeHint" data-page-node-id="0s0tFSTEcrSiVKNwjNxha2">当前：暗色</p>
+                <p class="theme-hint" id="themeHint">当前：暗色</p>
               </div>
             </div>
           </div>
@@ -185,34 +185,34 @@
       </section>
 
       <!-- 台词の番组放送 -->
-      <section class="daily-briefing glass" id="daily" data-page-node-id="mTzds74cHS3BwTikdOOjwi">
-        <div class="section-head" data-page-node-id="zdQfr3VUgKtPZUadz4I6cJ"><h2 data-page-node-id="S8yAFUJEPYXB0lDWBogWC0">🌟 台词の番组放送</h2></div>
-        <ul class="briefing-list quote-list" id="quoteList" data-page-node-id="qL5wdA7pW0NuR9hspnTytH"></ul>
+      <section class="daily-briefing glass" id="daily">
+        <div class="section-head"><h2>🌟 台词の番组放送</h2></div>
+        <ul class="briefing-list quote-list" id="quoteList"></ul>
         <div class="quote-foot">
-          <button class="quote-swap" id="quoteSwap" type="button" data-page-node-id="xQ9k2R7pLmZt4VbN8wC6d"><span class="q-icon" aria-hidden="true">⟳</span>换一换</button>
+          <button class="quote-swap" id="quoteSwap" type="button"><span class="q-icon" aria-hidden="true">⟳</span>换一换</button>
         </div>
       </section>
 
       <!-- 数据面板 -->
-      <section class="site-dashboard glass" data-page-node-id="BbkkGnmGf404iLywPD1ECK">
-        <div class="dashboard-grid" id="dashboard" data-page-node-id="UmT4uXAsKvEcIhagtLE3Kf"></div>
+      <section class="site-dashboard glass">
+        <div class="dashboard-grid" id="dashboard"></div>
       </section>
     </main>
 
-    <section class="end-card glass" data-page-node-id="QuENdFKhCELfo7j5szyjXj">
-      <span class="end-text" data-page-node-id="TVZrrpNtaXV3zJhkuUBn2a">「最后的斯大林格勒防线」</span>
+    <section class="end-card glass">
+      <span class="end-text">「最后的斯大林格勒防线」</span>
     </section>
-    <footer class="site-footer end-footer" data-page-node-id="k7GXvULWkamTjKhd6EuG74">
-      <p class="footer-icp" data-page-node-id="9XrGRv5JoGgsLc8Mg5AoAi">© 2026 再睡一夏 · 模板复刻自 <a href="https://github.com/heiehiehi/XinghuisamaBlogs" target="_blank" rel="noopener" data-page-node-id="ctBA6zeilwPSaLoKYSjsn1">XinghuisamaBlogs</a></p>
+    <footer class="site-footer end-footer">
+      <p class="footer-icp">© 2026 再睡一夏 · 模板复刻自 <a href="https://github.com/heiehiehi/XinghuisamaBlogs" target="_blank" rel="noopener">XinghuisamaBlogs</a></p>
     </footer>
   </div>
 
-  <button class="back-top" id="backTop" title="回到顶部" aria-label="回到顶部" data-page-node-id="lioINXBvqEr9KaHie4X8d1">↑</button>
-  <div class="toast" id="toast" data-page-node-id="gNIiehwkVDb3AbvseazWxH"></div>
+  <button class="back-top" id="backTop" title="回到顶部" aria-label="回到顶部">↑</button>
+  <div class="toast" id="toast"></div>
   <!-- 加 ?v= 版本号：改了 js/css 后浏览器会强制取新文件，避免旧缓存导致“改了没生效” -->
   <script src="assets/lyrics-data.js?v=20261029k"></script>
   <script src="assets/album-data.js?v=20261031x"></script>
   <script src="assets/bg-rotate.js?v=20261031y"></script>
-  <script src="assets/script.js?v=20261031aa"></script>
+  <script src="assets/script.js?v=20261031ab"></script>
 </body>
 </html>

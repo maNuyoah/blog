@@ -51,6 +51,7 @@ const QUOTE_GROUPS = [
 
 /* ---------------- 说说（占位） ---------------- */
 const CHATTERS = [
+  { text: "github pages加载太慢了，gitee的功能关了，vercel的没弄明白，七牛云的必须要备案，几经波折，终于在netlify上弄出来了比较稳定的域名，我真哭了", date: "2026.10.31" },
   { text: "就剩下一个留言板和打包上传到github仓库的工作了，这俩得让我先学习学习咋弄的", date: "2026.10.30" },
   { text: "相册终于也搞完了，就剩一些零碎的小部分了", date: "2026.10.29" },
   { text: "光一个音乐播放器就让ai足足改了17次，总算搞出我想要的效果了", date: "2026.10.28" },
@@ -528,7 +529,35 @@ function initPlayer() {
     renderLyrics(text);
   }
 
-  /* ---- 把整首歌抓进内存（Blob）----
+  /* ---- 探测服务器是否支持 HTTP Range ----
+     支持 Range 的托管（如 Netlify）会让浏览器按需区间请求音频，拖动进度直接生效，
+     无需把整首抓进内存 —— 既省内存又避免“整首抓取 + 播放渐进下载”的双重流量。
+     不支持 Range 的预览服务 / python -m http.server 才退化为整首抓进内存（见 startBlobUpgrade）。
+     用 bytes=0-0 探测：返回 206 即支持，返回 200 即不支持。结果按 src 缓存，只探一次。 */
+  const rangeProbe = {}; // src -> true(支持) / false(不支持)，undefined 表示尚未探测
+  function probeRange(src) {
+    return fetch(src, { headers: { Range: "bytes=0-0" }, cache: "no-store" })
+      .then(r => r.status === 206)
+      .catch(() => false);
+  }
+  // 按需决定音源：先保证能响应用户点击（网络地址已挂），再异步决定要不要升级为整首 Blob
+  function ensureSource(tr) {
+    if (location.protocol === "file:" || !tr || !tr.src) return; // 本地文件可随机读，无需处理
+    const cached = rangeProbe[tr.src];
+    if (cached === true) {
+      // Range 支持：确保用的是网络地址（别挂旧 blob），浏览器会按区间请求
+      if (/^blob:/.test(audio.src)) { audio.src = tr.src; audio.load(); }
+      return;
+    }
+    if (cached === false) { startBlobUpgrade(tr); return; }
+    // 未知：让当前网络地址先播着，异步探测，结果出来后再决定是否整首抓取
+    probeRange(tr.src).then(ok => {
+      rangeProbe[tr.src] = ok;
+      if (!ok) startBlobUpgrade(tr); // 不支持 Range → 整首抓进内存兜底
+    });
+  }
+
+  /* ---- 把整首歌抓进内存（Blob，仅当服务器不支持 HTTP Range 时作为兜底）----
      为什么要这么做：服务器若不支持 HTTP Range（很多预览服务、python -m http.server 都是），
      它只能“从头整份”发送数据，播放器 seekable 里只有已下载的那一小段，
      于是拖到没下载的位置就跳不动（旧版更糟：直接把目标钳成 0 → 从头播放）。
@@ -588,7 +617,7 @@ function initPlayer() {
 
   function play() {
     if (!TRACKS[idx].src) return;
-    startBlobUpgrade(TRACKS[idx]); // 点击播放才把整首抓进内存（按需下载，省流量）
+    ensureSource(TRACKS[idx]); // 探测 Range 支持：支持则直接用网络地址（浏览器按需区间请求，省流量）；不支持才整首抓进内存
     audio.play().then(() => {
       playing = true; status.textContent = "播放中"; playBtn.textContent = "⏸";
     }).catch(() => {
