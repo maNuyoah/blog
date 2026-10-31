@@ -66,21 +66,21 @@ const CHATTERS = [
    封面与歌词均为本地文件，双击 file:// 打开即可显示，无需本地服务器。
    改歌/加歌后重跑 node extract_tags.js 即可重新提取封面与歌词。
 
-   【省流量】src 现指向 assets/music-128/（128kbps、已剥内嵌封面的压缩版，约原体积 40%）；
-   原 320k 文件保留在 assets/music/ 未动。想听回高清：把 src 里的 "music-128/" 改回 "music/"。
-   加新歌后如需同步压缩：用 ffmpeg -i 原文件 -map 0:a -vn -c:a libmp3lame -b:a 128k 输出到 music-128/。
+   【省流量】src 现指向 assets/music-96/（96kbps、已剥内嵌封面的压缩版，单首约 2.5~4MB，手机流量也能秒加载）；
+   想换更高音质：把 assets/music-96/ 整目录替换为更高压缩档（如 music-128/）并把下面 src 的 "music-96/" 改掉即可。
+   加新歌后如需同步压缩：用 ffmpeg -i 原文件 -map 0:a -vn -c:a libmp3lame -b:a 96k 输出到 music-96/。
    播放为懒加载：点播放才开始下载（audio preload=metadata + 首次播放才抓整首进内存）。 */
 const TRACKS = [
-  { title: "Die For You",  artist: "VALORANT/Grabbitz", src: "assets/music-128/Die For You.mp3?v=20261031x",  cover: "assets/covers/Die For You.jpg?v=20261031x" },
-  { title: "LOVE 2000",    artist: "遠野ひかる",        src: "assets/music-128/LOVE 2000.mp3?v=20261031x",    cover: "assets/covers/LOVE 2000.jpg?v=20261031x" },
-  { title: "Ticking Away", artist: "VALORANT/Grabbitz/bbno$", src: "assets/music-128/Ticking Away.mp3?v=20261031x", cover: "assets/covers/Ticking Away.jpg?v=20261031x" },
-  { title: "secret base ~君がくれたもの~ (10 years after Ver.)", artist: "茅野愛衣/戸松遥/早見沙織", src: "assets/music-128/secret base ~君がくれたもの~ (10 years after Ver.).mp3?v=20261031x", cover: "assets/covers/secret base ~君がくれたもの~ (10 years after Ver.).jpg?v=20261031x" },
-  { title: "spiral",       artist: "LONGMAN",          src: "assets/music-128/spiral.mp3?v=20261031x",       cover: "assets/covers/spiral.jpg?v=20261031x" },
-  { title: "すずめ feat.十明", artist: "RADWIMPS/十明",  src: "assets/music-128/すずめ feat.十明.mp3?v=20261031x", cover: "assets/covers/すずめ feat.十明.jpg?v=20261031x" },
-  { title: "フィナーレ。", artist: "eill",              src: "assets/music-128/フィナーレ。.mp3?v=20261031x",    cover: "assets/covers/フィナーレ。.jpg?v=20261031x" },
-  { title: "天龙八部之宿敌", artist: "许嵩",            src: "assets/music-128/天龙八部之宿敌-许嵩.mp3?v=20261031x", cover: "assets/covers/天龙八部之宿敌-许嵩.jpg?v=20261031x" },
-  { title: "戒烟",           artist: "李荣浩",          src: "assets/music-128/戒烟-李荣浩.mp3?v=20261031x",       cover: "assets/covers/戒烟-李荣浩.jpg?v=20261031x" },
-  { title: "我想念",         artist: "汪苏泷",          src: "assets/music-128/我想念 - 汪苏泷.mp3?v=20261031x",   cover: "assets/covers/我想念 - 汪苏泷.jpg?v=20261031x" },
+  { title: "Die For You",  artist: "VALORANT/Grabbitz", src: "assets/music-96/Die For You.mp3?v=20261031x",  cover: "assets/covers/Die For You.jpg?v=20261031x" },
+  { title: "LOVE 2000",    artist: "遠野ひかる",        src: "assets/music-96/LOVE 2000.mp3?v=20261031x",    cover: "assets/covers/LOVE 2000.jpg?v=20261031x" },
+  { title: "Ticking Away", artist: "VALORANT/Grabbitz/bbno$", src: "assets/music-96/Ticking Away.mp3?v=20261031x", cover: "assets/covers/Ticking Away.jpg?v=20261031x" },
+  { title: "secret base ~君がくれたもの~ (10 years after Ver.)", artist: "茅野愛衣/戸松遥/早見沙織", src: "assets/music-96/secret base ~君がくれたもの~ (10 years after Ver.).mp3?v=20261031x", cover: "assets/covers/secret base ~君がくれたもの~ (10 years after Ver.).jpg?v=20261031x" },
+  { title: "spiral",       artist: "LONGMAN",          src: "assets/music-96/spiral.mp3?v=20261031x",       cover: "assets/covers/spiral.jpg?v=20261031x" },
+  { title: "すずめ feat.十明", artist: "RADWIMPS/十明",  src: "assets/music-96/すずめ feat.十明.mp3?v=20261031x", cover: "assets/covers/すずめ feat.十明.jpg?v=20261031x" },
+  { title: "フィナーレ。", artist: "eill",              src: "assets/music-96/フィナーレ。.mp3?v=20261031x",    cover: "assets/covers/フィナーレ。.jpg?v=20261031x" },
+  { title: "天龙八部之宿敌", artist: "许嵩",            src: "assets/music-96/天龙八部之宿敌-许嵩.mp3?v=20261031x", cover: "assets/covers/天龙八部之宿敌-许嵩.jpg?v=20261031x" },
+  { title: "戒烟",           artist: "李荣浩",          src: "assets/music-96/戒烟-李荣浩.mp3?v=20261031x",       cover: "assets/covers/戒烟-李荣浩.jpg?v=20261031x" },
+  { title: "我想念",         artist: "汪苏泷",          src: "assets/music-96/我想念 - 汪苏泷.mp3?v=20261031x",   cover: "assets/covers/我想念 - 汪苏泷.jpg?v=20261031x" },
 ];
 
 /* ---------------- 相册（首页只显示入口，图片在 album.html 二级页） ----------------
@@ -584,7 +584,7 @@ function initPlayer() {
       playing = true; status.textContent = "播放中"; playBtn.textContent = "⏸";
     }).catch(() => {
       playing = false; status.textContent = "文件缺失"; playBtn.textContent = "▶";
-      showToast("⚠️ 找不到音乐文件：" + TRACKS[idx].src + "（把 MP3 放进 assets/music-128/ 并在 script.js 的 TRACKS 填好路径）");
+      showToast("⚠️ 找不到音乐文件：" + TRACKS[idx].src + "（把 MP3 放进 assets/music-96/ 并在 script.js 的 TRACKS 填好路径）");
     });
   }
   function pause() {
