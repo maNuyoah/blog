@@ -689,11 +689,21 @@ function initPlayer() {
     volLabel.firstChild.nodeValue = v === 0 ? "🔇" : v < 0.5 ? "🔉" : "🔊";
   }
   audio.volume = 1;
+  // 音量持久化：记住上次设置的音量，下次打开仍是这个音量
+  try {
+    const savedVol = parseFloat(localStorage.getItem("xb_vol"));
+    if (!isNaN(savedVol) && savedVol >= 0 && savedVol <= 1) {
+      audio.volume = savedVol;
+      if (volSlider) volSlider.value = String(savedVol);
+    }
+  } catch (_) {}
+  paintVolIcon();
   if (volSlider) {
     volSlider.addEventListener("input", () => {
       audio.muted = false;
       audio.volume = parseFloat(volSlider.value);
       paintVolIcon();
+      try { localStorage.setItem("xb_vol", String(audio.volume)); } catch (_) {}
     });
   }
   // ============ 进度条 / 跳转 ============
