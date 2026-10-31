@@ -1,1 +1,8 @@
 _upload-*/
+
+# 开发期临时脚本，不进入部署产物（本地文件保留）
+convert_lyrics.py
+extract_tags.js
+flac2mp3.py
+push-site.bat
+
