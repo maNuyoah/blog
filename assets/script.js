@@ -146,22 +146,27 @@ function renderPosts(filter = "") {
     </a>`).join("");
   document.getElementById("statPosts").textContent = POSTS.length;
 }
-// 文章每 3.5s 轮播一次
-setInterval(() => { postOffset = (postOffset + 1) % POSTS.length; renderPosts(); }, 3500);
+// 文章每 3.5s 轮播一次（POSTS 为空时 %1 避免 NaN）
+setInterval(() => { postOffset = (postOffset + 1) % (POSTS.length || 1); renderPosts(); }, 3500);
 
 /* =========================================================
    渲染：说说（无缝循环滚动，内容复制两份）
    ========================================================= */
+let chattersTouchBound = false;
 function renderChatters() {
   const track = document.getElementById("chatterTrack");
   const card = c => `<div class="chatter-card">${c.text}<span class="chatter-date">${c.date}</span></div>`;
   const html = CHATTERS.map(card).join("");
   // 复制一份做无缝循环滚动（scrollUp 0→-50%）；桌面/手机端表现一致
   track.innerHTML = html + html;
-  // 触屏对齐桌面端 hover 暂停：按住暂停滚动，松手/取消恢复
-  track.addEventListener("touchstart", () => { track.style.animationPlayState = "paused"; }, { passive: true });
-  track.addEventListener("touchend", () => { track.style.animationPlayState = ""; });
-  track.addEventListener("touchcancel", () => { track.style.animationPlayState = ""; });
+  // 触屏对齐桌面端 hover 暂停：按住暂停滚动，松手/取消恢复。
+  // 只绑定一次（track 元素本身跨重渲染持久存在，重复绑定会累积监听）
+  if (!chattersTouchBound) {
+    track.addEventListener("touchstart", () => { track.style.animationPlayState = "paused"; }, { passive: true });
+    track.addEventListener("touchend", () => { track.style.animationPlayState = ""; });
+    track.addEventListener("touchcancel", () => { track.style.animationPlayState = ""; });
+    chattersTouchBound = true;
+  }
   document.getElementById("statChatters").textContent = CHATTERS.length;
   document.getElementById("statPhotos").textContent = SITE.photoCount;
 }
@@ -298,12 +303,16 @@ function moveMnIndicator(link) {
   mnIndicator.style.height = link.offsetHeight + "px";
 }
 // 同时高亮两端导航并滑动各自的指示器
-function setActiveByHref(href) {
-  navAnchors.forEach(a => a.classList.toggle("active", a.getAttribute("href") === href));
-  mnAnchors.forEach(a => a.classList.toggle("active", a.getAttribute("href") === href));
-  moveIndicator(navByHref[href]);
-  moveMnIndicator(mnByHref[href] || mnAnchors[0]);
-}
+  function setActiveByHref(href) {
+    navAnchors.forEach(a => a.classList.toggle("active", a.getAttribute("href") === href));
+    mnAnchors.forEach(a => a.classList.toggle("active", a.getAttribute("href") === href));
+    moveIndicator(navByHref[href]);
+    moveMnIndicator(mnByHref[href] || mnAnchors[0]);
+  }
+  // 当前高亮的导航项（指示器初始定位用）；无高亮时回退到首页链接
+  function activeNavLink() {
+    return document.querySelector(".nav-links a.active") || navAnchors[0] || null;
+  }
 
 // 点击：首页→顶部，关于→底部，其余→对应区块
 function bindNavClick(a) {
