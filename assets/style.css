@@ -49,6 +49,11 @@ h1, h2, h3 { font-weight: 900; letter-spacing: -0.02em; }
 .bg-layer {
   position: fixed; inset: 0; z-index: -2;
   background-size: cover; background-position: center;
+  /* 兜底底色：图还没加载出来时也不至于纯黑/纯白，弱网也不空屏 */
+  background-color: #2a2440;
+  background-image:
+    radial-gradient(1200px 700px at 18% 12%, rgba(161,140,209,0.35), transparent 60%),
+    radial-gradient(1000px 600px at 88% 82%, rgba(162,196,253,0.28), transparent 60%);
   /* 双图层交叉淡入：只过渡 opacity，background-image 不可平滑过渡 */
   opacity: 0;
   transition: opacity 1.6s ease;

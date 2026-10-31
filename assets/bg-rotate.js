@@ -1,8 +1,7 @@
 /* =========================================================
    背景轮播：双图层交叉淡入（真·丝滑溶解）
-   - 预加载下一张，加载完成后才切换，绝不出现“黑屏等图”
-   - 两个 bg-layer 交叉控制 opacity：新的淡入、旧的淡出
-   - 某张图加载失败自动跳过，绝不停摆
+   - 首图立即挂上 front 层并显示（绝不等待预加载，弱网也能尽快出图，不会卡在 opacity:0）
+   - 后续图：预加载成功才淡入；预加载失败自动跳下一张，且 front 仍显示当前图，绝不黑屏
    - 用户系统开启“减弱动态效果”时退化为直接切换
    - 跨页面续播：当前背景下标存 sessionStorage，主页↔相册互穿不重置
    ========================================================= */
@@ -61,57 +60,42 @@
     layer.style.backgroundImage = 'url("' + url + '")';
   }
 
-  // 预加载：成功 ok(true)，失败 ok(false)
-  function preload(url, ok) {
-    var im = new Image();
-    im.onload = function () { ok(true); };
-    im.onerror = function () { ok(false); };
-    im.src = url;
-  }
+  // 首图：立即挂上 front 层并淡入（不等待预加载，弱网下浏览器原生加载，加载好即显示）
+  (function paintFirst() {
+    var start = readIdx();
+    idx = (start != null && start >= 0 && start < BG_IMAGES.length) ? start : 0;
+    setImage(front, BG_IMAGES[idx]);
+    void front.offsetWidth;                 // 强制回流，保证 opacity 过渡从 0 开始
+    front.style.opacity = String(ALPHA);
+    writeIdx(idx);
+  })();
 
-  // 从 idx 之后找下一张能加载的图；全部失败则放弃本轮
-  // firstIdx 非空时首拍直接落在指定下标（跨页面续播：接着别的页面那张放）
-  function advance(ok, firstIdx) {
+  // 后续切换：先预加载下一张，成功才淡入；失败自动跳下一张
+  // （front 始终保留当前图，哪怕全部预加载失败也只是不换图，绝不黑屏）
+  function next() {
+    if (busy) return;
+    busy = true;
     var tries = 0;
-    if (firstIdx != null && firstIdx >= 0 && firstIdx < BG_IMAGES.length) {
-      idx = firstIdx - 1; // 让下面 attempt 的 +1 正好落在 firstIdx 上
-    }
     (function attempt() {
-      if (tries >= BG_IMAGES.length) { ok(null); return; }
+      if (tries >= BG_IMAGES.length) { busy = false; return; }
       tries++;
       idx = (idx + 1) % BG_IMAGES.length;
-      preload(BG_IMAGES[idx], function (fine) {
-        if (fine) ok(BG_IMAGES[idx]);
-        else attempt();
-      });
+      var im = new Image();
+      im.onload = function () {
+        setImage(back, BG_IMAGES[idx]);
+        void back.offsetWidth;
+        back.style.opacity = String(ALPHA);
+        front.style.opacity = "0";
+        setTimeout(function () {
+          var t = front; front = back; back = t;
+          busy = false;
+        }, FADE + 60);
+        writeIdx(idx); // 回存，别的页面加载时接着这张放
+      };
+      im.onerror = function () { attempt(); }; // 这张坏了，试下一张
+      im.src = BG_IMAGES[idx];
     })();
   }
 
-  // 首图：接着上次那张淡入到可见层（首次访问才是第一张），并回存下标
-  advance(function (url) {
-    if (!url) return;
-    setImage(front, url);
-    // 强制回流一次，保证 opacity 过渡从 0 开始播放
-    void front.offsetWidth;
-    front.style.opacity = String(ALPHA);
-    writeIdx(idx);
-  }, readIdx());
-
-  // 循环切换：新图淡入、旧图淡出，过渡结束后交换两层身份
-  setInterval(function () {
-    if (busy) return;
-    advance(function (url) {
-      if (!url) return;
-      busy = true;
-      setImage(back, url);
-      void back.offsetWidth;
-      back.style.opacity = String(ALPHA);
-      front.style.opacity = "0";
-      setTimeout(function () {
-        var t = front; front = back; back = t;
-        busy = false;
-      }, FADE + 60);
-      writeIdx(idx); // 回存，别的页面加载时接着这张放
-    });
-  }, DWELL);
+  setInterval(next, DWELL);
 })();
